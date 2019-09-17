@@ -1,0 +1,19 @@
+---
+title: "DataWrangling1"
+author: "Steven Lawrence"
+date: "September 17, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+## Load in a dataset
+
+```{r}
+litters_data <- read_csv(file = "FAS_litters.csv")
+litters_data
+```
+
