@@ -26,6 +26,9 @@ litters_data <- read_csv(file = "data/FAS_litters.csv")
 litters_data = janitor::clean_names(litters_data)
 ```
 
+Loading in pups data
+--------------------
+
 ``` r
 pups_data <- read_csv(file = "data/FAS_pups.csv")
 ```
@@ -59,3 +62,23 @@ pups_data
     ##  9 #4/2/95/3-3       1       4      13        7       9
     ## 10 #2/2/95/3-2       1       4      NA        8      10
     ## # ... with 303 more rows
+
+``` r
+skimr::skim(pups_data)
+```
+
+    ## Skim summary statistics
+    ##  n obs: 313 
+    ##  n variables: 6 
+    ## 
+    ## -- Variable type:character -----------------------------------------------------------------------------
+    ##       variable missing complete   n min max empty n_unique
+    ##  litter_number       0      313 313   3  15     0       49
+    ## 
+    ## -- Variable type:numeric -------------------------------------------------------------------------------
+    ##  variable missing complete   n  mean   sd p0 p25 p50 p75 p100     hist
+    ##   pd_ears      18      295 313  3.68 0.59  2   3   4   4    5 <U+2581><U+2581><U+2585><U+2581><U+2581><U+2587><U+2581><U+2581>
+    ##   pd_eyes      13      300 313 12.99 0.62 12  13  13  13   15 <U+2582><U+2581><U+2587><U+2581><U+2581><U+2582><U+2581><U+2581>
+    ##  pd_pivot      13      300 313  7.09 1.51  4   6   7   8   12 <U+2583><U+2586><U+2587><U+2583><U+2582><U+2581><U+2581><U+2581>
+    ##   pd_walk       0      313 313  9.5  1.34  7   9   9  10   14 <U+2581><U+2585><U+2587><U+2585><U+2583><U+2582><U+2581><U+2581>
+    ##       sex       0      313 313  1.5  0.5   1   1   2   2    2 <U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2587>
