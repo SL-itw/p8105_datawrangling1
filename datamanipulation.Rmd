@@ -27,3 +27,34 @@ pups_data <- read_csv(file = "data/FAS_pups.csv")
 pups_data <- janitor::clean_names(pups_data)
 ```
 
+##Selecting
+
+```{r}
+select(litters_data, group, litter_number, starts_with("pups"))
+
+select(litters_data,litter_number, gd18_weight:pups_survive)
+```
+
+## Filtering !!!!!!
+
+```{r}
+litters_data%>%filter(group == "Mod8")
+
+litters_data%>% drop_na()
+```
+## Mutate
+
+```{r}
+mutate(
+  litters_data, wt_gain = gd18_weight - gd0_weight,
+  group - str_to_lower(group),
+  group = str_to_upper(group))
+```
+
+##Arrange
+
+```{r}
+arrange(litters_data, pups_born_alive)
+arrange(litters_data, pups_born_alive, gd0_weight)
+```
+
