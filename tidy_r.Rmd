@@ -1,0 +1,18 @@
+---
+title: "datawrangle1_tidyr"
+author: "Steven Lawrence"
+date: "September 24, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Installing libraies
+
+```{r}
+install.packages("tidyr")
+install.packages("tidyverse")
+```
+

@@ -47,7 +47,7 @@ litters_data%>% drop_na()
 ```{r}
 mutate(
   litters_data, wt_gain = gd18_weight - gd0_weight,
-  group - str_to_lower(group),
+  group = str_to_lower(group),
   group = str_to_upper(group))
 ```
 
@@ -57,4 +57,17 @@ mutate(
 arrange(litters_data, pups_born_alive)
 arrange(litters_data, pups_born_alive, gd0_weight)
 ```
+## using the pipe sign
 
+```{r}
+litters_data = 
+  read_csv("data/FAS_litters.csv") %>% 
+  janitor::clean_names() %>% 
+  select(-pups_survive) %>% 
+  mutate(
+   wt_gain = gd18_weight - gd0_weight,
+  group = str_to_lower(group)) %>% 
+  drop_na(gd0_weight)
+
+litters_data %>% pull(wt_gain) %>% mean
+```
